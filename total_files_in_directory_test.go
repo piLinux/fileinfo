@@ -1,9 +1,11 @@
-package fileinfo
+package fileinfo_test
 
 import (
 	"io/ioutil"
 	"os"
 	"testing"
+
+	"github.com/pilinux/fileinfo"
 )
 
 // TestTotalFilesInDirectory - test `TotalFilesInDirectory` function
@@ -48,7 +50,7 @@ func TestTotalFilesInDirectory(t *testing.T) {
 
 	// Test the function
 	// Find the number of files in the directory including all sub-directories
-	totalFilesInDirectory, err := TotalFilesInDirectory(tempDir)
+	totalFilesInDirectory, err := fileinfo.TotalFilesInDirectory(tempDir)
 	if err != nil {
 		t.Fatalf("error executing TotalFilesInDirectory function: %v", err)
 	}
@@ -57,7 +59,7 @@ func TestTotalFilesInDirectory(t *testing.T) {
 	}
 
 	// Find the number of files in a sub-directory
-	totalFilesInDirectory2, err := TotalFilesInDirectory(tempDir2)
+	totalFilesInDirectory2, err := fileinfo.TotalFilesInDirectory(tempDir2)
 	if err != nil {
 		t.Fatalf("error executing TotalFilesInDirectory function: %v", err)
 	}

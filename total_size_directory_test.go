@@ -1,9 +1,11 @@
-package fileinfo
+package fileinfo_test
 
 import (
 	"io/ioutil"
 	"os"
 	"testing"
+
+	"github.com/pilinux/fileinfo"
 )
 
 // TestTotalSizeDirectory - test `TotalSizeDirectory` function
@@ -60,7 +62,7 @@ func TestTotalSizeDirectory(t *testing.T) {
 
 	// Test the function
 	// Find the total size of the directory including all sub-directories
-	totalSizeDirectory, err := TotalSizeDirectory(tempDir)
+	totalSizeDirectory, err := fileinfo.TotalSizeDirectory(tempDir)
 	if err != nil {
 		t.Fatalf("error executing TotalSizeDirectory function: %v", err)
 	}
@@ -69,7 +71,7 @@ func TestTotalSizeDirectory(t *testing.T) {
 	}
 
 	// Find the size of a sub-directory
-	totalSizeDirectory2, err := TotalSizeDirectory(tempDir2)
+	totalSizeDirectory2, err := fileinfo.TotalSizeDirectory(tempDir2)
 	if err != nil {
 		t.Fatalf("error executing TotalSizeDirectory function: %v", err)
 	}
